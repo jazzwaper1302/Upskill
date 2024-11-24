@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kembang Api Seluruh Layar</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            background-color: #282c34;
+        }
+
+        .firework {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: firework-animation 1s forwards;
+        }
+
+        @keyframes firework-animation {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+
+            // Menambahkan efek kembang api
+            for (let i = 0; i < 10; i++) {
+                const firework = document.createElement('div');
+                firework.className = 'firework';
+                firework.style.width = `${Math.random() * 10 + 5}px`; // Ukuran acak
+                firework.style.height = firework.style.width; // Membuatnya bulat
+                firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`; // Warna acak
+                firework.style.left = `${x + 10}px`; // Posisi horizontal
+                firework.style.top = `${y + 10}px`; // Posisi vertikal
+                firework.style.boxShadow = `0 0 10px ${firework.style.backgroundColor}`; // Efek cahaya
+                document.body.appendChild(firework);
+
+                // Menghapus efek kembang api setelah animasi selesai
+                setTimeout(() => {
+                    firework.remove();
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
