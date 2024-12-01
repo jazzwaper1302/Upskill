@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lengkapi Profil</title>
+    <link rel="stylesheet" href="lengkap.css">
+    <style>
+        /* Tambahkan beberapa gaya CSS sederhana untuk membuat form terlihat lebih baik */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Lengkapi Profil</h2>
+    <form action="lengkapiprofile.php" method="POST">
+        <div class="form-group">
+            <label for="province">Provinsi:</label>
+            <select id="province" name="province">
+                <option value="">Pilih Provinsi</option>
+                <option value="Aceh">Aceh</option>
+                <option value="Bali">Bali</option>
+                <option value="Bangka Belitung">Bangka Belitung</option>
+                <option value="Banten">Banten</option>
+                <option value="Bengkulu">Bengkulu</option>
+                <option value="DKI Jakarta">DKI Jakarta</option>
+                <option value="Gorontalo">Gorontalo</option>
+                <option value="Jawa Barat">Jawa Barat</option>
+                <option value="Jawa Tengah">Jawa Tengah</option>
+                <option value="Jawa Timur">Jawa Timur</option>
+                <option value="Jambi">Jambi</option>
+                <option value="Kalimantan Barat">Kalimantan Barat</option>
+                <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                <option value="Kalimantan Tengah">Kalimantan Tengah</option>
+                <option value="Kalimantan Timur">Kalimantan Timur</option>
+                <option value="Kalimantan Utara">Kalimantan Utara</option>
+                <option value="Lampung">Lampung</option>
+                <option value="Maluku">Maluku</option>
+                <option value="Maluku Utara">Maluku Utara</option>
+                <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+                <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+                <option value="Papua">Papua</option>
+                <option value="Papua Barat">Papua Barat</option>
+                <option value="Riau">Riau</option>
+                <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                <option value="Sulawesi Utara">Sulawesi Utara</option>
+                <option value="Sumatera Barat">Sumatera Barat</option>
+                <option value="Sumatera Selatan">Sumatera Selatan</option>
+                <option value="Sumatera Utara">Sumatera Utara</option>
+                <option value="Yogyakarta (DIY)">Yogyakarta (DIY)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="city">Kota:</label>
+            <select id="city" name="city">
+                <option value="">Pilih Kota</option>
+                <!-- Opsi kota akan diisi melalui JavaScript -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="street">Jalan:</label>
+            <input type="text" id="street" name="street" required>
+        </div>
+
+        <div class="form-group">
+            <label for="postal_code">Kode Pos:</label>
+            <input type="text" id="postal_code" name="postal_code" required pattern="[0-9]{5}" title="Harap masukkan kode pos dengan format yang benar (5 digit angka).">
+        </div>
+
+        <div class="form-group">
+            <label for="education">Pendidikan:</label>
+            <select id="education" name="education">
+                <option value="">Pilih Pendidikan</option>
+                <option value="SD">SD</option>
+                <option value="SMP">SMP</option>
+                <option value="SMA/SMK">SMA/SMK</option>
+                <option value="S1">S1</option>
+                <option value="S2">S2</option>
+                <option value="S3">S3</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="institution">Instansi Pendidikan Terakhir:</label>
+            <input type="text" id="institution" name="institution">
+        </div>
+
+        <div class="form-group hidden" id="degree-group">
+            <label for="degree">Gelar:</label>
+            <input type="text" id="degree" name="degree">
+        </div>
+
+        <div class="form-group">
+            <label for="expertise">Keahlian:</label>
+            <input type="text" id="expertise" name="expertise">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Nomor Telepon:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10,}" required title="Harap masukkan nomor telepon dengan format yang benar (minimal 10 digit).">
+        </div>
+
+        <input type="submit" value="Simpan" class="btn">
+    </form>
+</div>
+
+<script>
+    // Objek yang menyimpan kota berdasarkan provinsi
+    const citiesByProvince = {
+        "Aceh": ["Banda Aceh", "Langsa", "Lhokseumawe"],
+        "Bali": ["Denpasar", "Badung", "Gianyar"],
+        "Bangka Belitung": ["Pangkal Pinang"],
+        "Banten": ["Serang", "Tangerang", "Cilegon"],
+        "Bengkulu": ["Bengkulu", "Rejang Lebong"],
+        "DKI Jakarta": ["Jakarta Pusat", "Jakarta Utara", "Jakarta Selatan"],
+        "Gorontalo": ["Gorontalo", "Bone Bolango"],
+        "Jawa Barat": ["Bandung", "Bogor", "Bekasi"],
+        "Jawa Tengah": ["Semarang", "Solo", "Salatiga"],
+        "Jawa Timur": ["Surabaya", "Malang", "Sidoarjo"],
+        "Jambi": ["Jambi", "Sungaipenuh"],
+        "Kalimantan Barat": ["Pontianak", "Singkawang"],
+        "Kalimantan Selatan": ["Banjarmasin", "Banjarbaru"],
+        "Kalimantan Tengah": ["Palangka Raya"],
+        "Kalimantan Timur": ["Samarinda", "Balikpapan"],
+        "Kalimantan Utara": ["Tarakan"],
+        "Lampung": ["Bandar Lampung", "Metro"],
+        "Maluku": ["Ambon", "Tual"],
+        "Maluku Utara": ["Ternate", "Tidore"],
+        "Nusa Tenggara Barat": ["Mataram", "Bima"],
+        "Nusa Tenggara Timur": ["Kupang"],
+        "Papua": ["Jayapura", "Merauke"],
+        "Papua Barat": ["Manokwari"],
+        "Riau": ["Pekanbaru"],
+        "Sulawesi Selatan": ["Makassar", "Parepare"],
+        "Sulawesi Tengah": ["Palu"],
+        "Sulawesi Tenggara": ["Kendari"],
+        "Sulawesi Utara": ["Manado"],
+        "Sumatera Barat": ["Padang", "Bukittinggi"],
+        "Sumatera Selatan": ["Palembang"],
+        "Sumatera Utara": ["Medan", "Binjai"],
+        "Yogyakarta (DIY)": ["Yogyakarta", "Sleman"]
+    };
+
+    var provinceSelect = document.getElementById("province");
+    var citySelect = document.getElementById("city");
+
+    provinceSelect.addEventListener("change", function() {
+        var selectedProvince = provinceSelect.value;
+        citySelect.innerHTML = "<option value=''>Pilih Kota</option>"; // Reset kota
+
+        if (selectedProvince) {
+            var cities = citiesByProvince[selectedProvince];
+            cities.forEach(function(city) {
+                var option = document.createElement("option");
+                option.value = city;
+                option.textContent = city;
+                citySelect.appendChild(option);
+            });
+        }
+    });
+
+    // Show/hide degree field based on education level
+    var educationSelect = document.getElementById("education");
+    var degreeGroup = document.getElementById("degree-group");
+
+    educationSelect.addEventListener("change", function() {
+        if (educationSelect.value === "S1" || educationSelect.value === "S2" || educationSelect.value === "S3") {
+            degreeGroup.classList.remove("hidden");
+        } else {
+            degreeGroup.classList.add("hidden");
+        }
+    });
+</script>
+
+</body>
+</html>
